@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FolderWatcher"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="650.426" Width="577.55" Background="#FFEEEEEE" Loaded="Window_Loaded">
+    <Grid Margin="0,0,2,-1" Background="#FFEEEEEE">
+        <GroupBox x:Name="grpMode" Header="Mode" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="74" Width="342" FontWeight="Bold" FontSize="14" BorderBrush="White">
+            <Grid HorizontalAlignment="Left" Height="47" Margin="10,2,0,0" VerticalAlignment="Top" Width="312">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton x:Name="radWatchFolder" Content="Watch Directory" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="15" Width="109" FontWeight="Normal" FontSize="12" IsChecked="True"/>
+                <CheckBox x:Name="chkSubFolders" Content="Include Subfolders" Grid.Column="1" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Height="15" Width="124" FontWeight="Normal" FontSize="12"/>
+                <RadioButton x:Name="radWatchFile" Content="Watch File" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Height="15" Width="83" FontWeight="Normal" FontSize="12"/>
+            </Grid>
+        </GroupBox>
+        <TextBox x:Name="txtWatchPath" HorizontalAlignment="Left" Height="23" Margin="10,117,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="440" FontSize="11" IsReadOnly="True" Background="White" BorderBrush="Black" Foreground="#FF8F8F8F"/>
+        <Button x:Name="btnToWatch" Content="Browse" HorizontalAlignment="Left" Margin="472,117,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnToWatch_Click" Background="#FFC5C5C5"/>
+        <Button x:Name="btnStartWatch" Content="Start Watching" HorizontalAlignment="Left" Margin="384,58,0,0" VerticalAlignment="Top" Width="162" Height="26" VerticalContentAlignment="Center" Click="btnStartWatch_Click" Background="#FFDDDDDD"/>
+        <Label x:Name="lblSelect" Content="Select Directory to Watch" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="242" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="txtDestPath" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="10,173,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="440" FontSize="11" Background="White" BorderBrush="Black" Foreground="#FF8F8F8F"/>
+        <Button x:Name="btnDestination" Content="Browse" HorizontalAlignment="Left" Margin="472,173,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnDestination_Click" Background="#FFC5C5C5"/>
+        <Label x:Name="lblDestn" Content="Select Destination Directory" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Width="242" FontWeight="Bold" FontSize="14"/>
+        <GroupBox x:Name="grpListBoxes" Header="Files Processing" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Height="350" Width="536" FontWeight="Bold" FontSize="14" BorderBrush="White">
+            <Grid HorizontalAlignment="Left" Height="325" Margin="10,0,0,-1" VerticalAlignment="Top" Width="505">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="254*"/>
+                    <ColumnDefinition Width="251*"/>
+                </Grid.ColumnDefinitions>
+                <ListBox x:Name="lsbWatchFolder" HorizontalAlignment="Left" Height="299" VerticalAlignment="Top" Width="240" FontWeight="Normal" FontSize="10" Margin="1,21,0,0" BorderBrush="Black" SelectionChanged="lsbWatchFolder_SelectionChanged"/>
+                <ListBox x:Name="lsbDestnFolder" Grid.Column="1" HorizontalAlignment="Left" Height="299" VerticalAlignment="Top" Width="238" FontWeight="Normal" FontSize="10" Margin="13,21,0,0" BorderBrush="Black" SelectionChanged="lsbDestnFolder_SelectionChanged"/>
+                <Label x:Name="lblStart" Content="Starting Directory" HorizontalAlignment="Left" Margin="10,-2,0,0" VerticalAlignment="Top" FontWeight="Normal" FontSize="11" Width="231" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="lblDestDir" Content="Destination Directory" Grid.Column="1" HorizontalAlignment="Left" Margin="13,-2,0,0" VerticalAlignment="Top" Width="231" FontWeight="Normal" FontSize="11" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="141,572,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnReset_Click"/>
+        <Button x:Name="btnExportLog" Content="Export Log" HorizontalAlignment="Left" Margin="27,572,0,0" VerticalAlignment="Top" Width="86" Height="22" Click="btnExportLog_Click"/>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="456,572,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnExit_Click"/>
+
     </Grid>
 </Window>
